@@ -1,0 +1,72 @@
+{
+	"version": "2.0.0",
+	"presentation": {
+		"echo": true,
+		"reveal": "always",
+		"focus": false,
+		"panel": "shared",
+		"showReuseMessage": true,
+		"clear": false
+	},
+	
+	"tasks": [
+		{
+			//cpp leetcode
+			"type": "process",
+			"label": "LeetCode cppbuild",
+			"command": "cl.exe",
+			"args": [
+				"/FI",
+				"${file}",
+				"${fileDirname}\\..\\Main.cpp",
+			],
+			"options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+					//use CL env val or ClCommandFile to transport options and args
+					//The CL tool prepends the options and arguments defined in the CL environment variable to the command-line arguments, 
+					//and appends the options and arguments defined in _CL_, before processing.
+					"path": "${env:ProgramFiles(x86)}/Microsoft Visual Studio/${config:VsVersion}/${config:VsEdtion}/VC/Tools/MSVC/${config:MsvcVersion}/bin/Host${config:Platform}/${config:Platform}/",
+					"CL": "/Od /ZI /EHsc /MDd /I \"${env:OneDrive}\\Documents\\Visual Studio Code\\MyInclude\"",
+					"_CL_": "/link /DEBUG:FASTLINK",
+					"INCLUDE": "${config:VsPath}\\${config:VsVersion}\\${config:VsEdtion}\\VC\\Tools\\MSVC\\${config:MsvcVersion}\\include;${config:IncludePath}\\${config:windowsSdkVersion}\\shared;${config:IncludePath}\\${config:windowsSdkVersion}\\ucrt;${config:IncludePath}\\${config:windowsSdkVersion}\\um;${config:IncludePath}\\${config:windowsSdkVersion}\\winrt;${env:vcpkgpath}\\installed\\${config:Platform}-${config:OS}\\include",
+					"LIB": "${config:VsPath}\\${config:VsVersion}\\${config:VsEdtion}\\VC\\Tools\\MSVC\\${config:MsvcVersion}\\lib\\${config:Platform};${config:LibPath}\\${config:windowsSdkVersion}\\ucrt\\${config:Platform};${config:LibPath}\\${config:windowsSdkVersion}\\um\\${config:Platform};${env:vcpkgpath}\\installed\\${config:Platform}-${config:OS}\\debug\\lib;${env:vcpkgpath}\\installed\\${config:Platform}-${config:OS}\\lib;",
+				},
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"detail": "LeetCode solution test environment"
+		},
+		{
+			//rust leetcode
+			"label": "build",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"build"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/LeetCode_rust",				
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": "$rustc"
+		},
+		{
+			"label": "clean",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"clean"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/LeetCode_rust"
+			},
+			"group": "none",
+		}
+	]
+}

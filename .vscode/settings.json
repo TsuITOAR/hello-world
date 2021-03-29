@@ -1,0 +1,27 @@
+{
+    //setup for project
+    "ProjectName":"Test",
+    //settings for msvc
+    "VsVersion": "2019",
+    "VsEdtion": "BuildTools",
+    "windowsSdkVersion": "10.0.18362.0",
+    "MsvcVersion": "14.28.29333",
+    "ClComFile": ".CLcommand",
+	"Platform": "x64",
+	"OS":"windows",
+    "VsPath": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio",
+    "Vcvars": "VC\\Auxiliary\\Build\\vcvarsall.bat",
+    "DevShell": "Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll",
+    "IncludePath": "${env:ProgramFiles(x86)}\\Windows Kits\\10\\Include",
+	"LibPath": "${env:ProgramFiles(x86)}\\Windows Kits\\10\\Lib",
+    "cSpell.ignoreWords": [
+        "addtoalpha",
+        "area",
+        "elemit",
+        "maxin",
+        "sptr",
+        "xbegin",
+        "ybegin",
+        "yend"
+	],
+}
